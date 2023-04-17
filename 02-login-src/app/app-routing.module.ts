@@ -7,7 +7,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 
 const routes: Routes = [  
-  //{path: '', component:HomeComponent},
+  {path: '', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'bienvenido', component:BienvenidoComponent},
   {path:'registrar', component:RegistrarComponent},

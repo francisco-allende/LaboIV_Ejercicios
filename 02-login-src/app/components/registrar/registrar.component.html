@@ -2,7 +2,7 @@
 	<div class="screen">
 		<div class="screen__content">
 			<form class="login">
-                <h1>REGISTRARSE</h1>
+                <h1 id="title">Sing Up</h1>
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
 					<input type="text" class="login__input" placeholder="User name / Email" name="username" [(ngModel)]="username">
@@ -10,11 +10,9 @@
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
 					<input type="password" class="login__input" placeholder="Password" name="password" [(ngModel)]="password">
-				</div>
-                <button class="button create-account__submit">
-					<span class="button__text" (click)="save()">Create account</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
+				</div><p style="text-align: center;">
+                <button class="btn btn-success" (click)="save()">Create account
+				</button></p>				
 			</form>
 			<div class="social-login">
 			</div>

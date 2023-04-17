@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/User/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
@@ -7,17 +8,17 @@ import { User } from 'src/app/models/User/user';
   styleUrls: ['./registrar.component.css']
 })
 export class RegistrarComponent {
+
   //declaro el array y su tipo
   usuarios: User[] = [];
   username:string="";
   password:string="";
 
   //es si o si con constructor que se instancian objetos en ts
-  constructor() {
+  constructor(private router: Router) {
     this.usuarios.push(new User("fran", '1234'));
     this.usuarios.push(new User("juan", '333'));
     this.usuarios.push(new User("maria", '444'));
-    
   }
 
   ngOnInit() {
@@ -32,8 +33,23 @@ export class RegistrarComponent {
   save(){
     //get input data
     const newUser = new User(this.username, this.password);
-    this.usuarios.push(newUser);
-    localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
+    let existe = false;
+    this.usuarios.forEach(x=>{
+      x.username == this.username ? existe = true : console.log(`${x.username} no es ${this.username}`)
+    }); 
+    if(!existe){
+      this.usuarios.push(newUser); //save in array
+      localStorage.setItem('usuarios', JSON.stringify(this.usuarios)); //save array in memory
+      
+      alert(`Usuario ${this.username} creado con exito!`);
+      this.router.navigate(['./login']);
+    }else{
+      alert(`El usuario ${this.username} ya existe, pruebe con un nombre nuevo`); //meter sweet alert
+    }
+  }
+
+  usernameAlreadyExists(existingUser:User){
+    return existingUser.username == this.username ? true :  false; 
   }
 
 }

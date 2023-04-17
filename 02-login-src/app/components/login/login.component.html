@@ -2,22 +2,20 @@
 	<div class="screen">
 		<div class="screen__content">
 			<form class="login">
+				<h1>Login</h1> 
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email">
+					<input type="text" class="login__input" placeholder="User name / Email" name="username" [(ngModel)]="username">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password">
+					<input type="password" class="login__input" placeholder="Password" name="password" [(ngModel)]="password">
 				</div>
-				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
+				<button class="button login__submit" (click)="logUser()">
+					Log In Now
 				</button>
-                <br>
-                <button class="button create-account__submit">
-					<span class="button__text">Create account</span>
-					<i class="button__icon fas fa-chevron-right"></i>
+                <button class="button create-account__submit" (click)="navigateToRegistrar()">
+					Create account
 				</button>				
 			</form>
 			<div class="social-login">
