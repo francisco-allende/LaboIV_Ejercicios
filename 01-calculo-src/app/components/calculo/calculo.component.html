@@ -1,0 +1,14 @@
+<input type="number" [(ngModel)]="edadUno"/>
+<br><br>
+<input type="number" [(ngModel)]="edadDos"/>
+<br><br>
+
+<label>Promedio</label><input type="number" readonly  [(ngModel)]="promedio" name="input-p"/>
+<br>
+<label >Suma</label><input type="number" readonly  [(ngModel)]="sumaEdades" name="input-s"/>
+<br>
+<button (click)="calcularPromedio()" (click)="sumar()">Calcular</button>
+<br><br>
+<button (click)="vaciar()">Vaciar</button>
+
+

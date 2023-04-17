@@ -1,0 +1,24 @@
+<router-outlet></router-outlet>
+<h1>{{title}}</h1> <!--Variable title de angular de app.components.ts-->
+
+<div>
+  <!-- <input type="text" {{nro1}}/> Error. No anda.-->
+  <!-- <input type="text" value="{{nro1}}"/> Esto funciona pero NO es bindeo-->
+  <input type="text" readonly [(ngModel)]="nro1"/> <!-- Esto SI es bindeo-->
+  <br><br>
+  <input type="text" readonly [(ngModel)]="nro2"/> 
+  <br><br>
+  <!--Evento click="nombre_funcion()"-->
+  <button class="btn btn-primary" (click)="Sumar()">Click Me</button>
+  <br><br>
+  <input type="text" readonly [(ngModel)]="resultado"/>
+</div>
+
+<br><br>
+
+
+<h3>{{resultado}}</h3>
+
+
+
+
