@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/User/user';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import Toastify from 'toastify-js';
 
 @Component({
   selector: 'app-registrar',
@@ -35,16 +37,17 @@ export class RegistrarComponent {
     const newUser = new User(this.username, this.password);
     let existe = false;
     this.usuarios.forEach(x=>{
-      x.username == this.username ? existe = true : console.log(`${x.username} no es ${this.username}`)
+      x.username == this.username ? existe = true : console.log(``)
     }); 
     if(!existe){
       this.usuarios.push(newUser); //save in array
       localStorage.setItem('usuarios', JSON.stringify(this.usuarios)); //save array in memory
+
+      Swal.fire(`Usuario creado con exito!`, 'Te redirigiremos al Login para que accedas con tu nuevo usuario', 'success');
       
-      alert(`Usuario ${this.username} creado con exito!`);
       this.router.navigate(['./login']);
     }else{
-      alert(`El usuario ${this.username} ya existe, pruebe con un nombre nuevo`); //meter sweet alert
+      Swal.fire(`El nombre de usuario ${this.username} ya esta en uso`, 'Prueba con uno nuevo', 'info');
     }
   }
 
