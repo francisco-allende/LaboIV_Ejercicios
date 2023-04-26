@@ -1,0 +1,51 @@
+
+#logo{
+    margin-bottom: 1em;
+    width: 100%;
+    height: 35em;
+}
+
+/* footer */
+footer{
+    display: block;
+    font-size: 1.2em;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+}
+#menu_footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 25%;
+    margin-bottom: 0;
+  }
+.footer_li{
+    display: inline-block;
+    padding-left: 0;
+    padding-right: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+a:hover {
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.7; /* Adjust the opacity as needed */
+  }
+
+  .dropdown-item:hover {
+    background-color: rgb(104, 104, 104);
+  }
+  
+
+  
+  @media screen and (max-width: 768px) {
+    #menu_footer {
+      flex-direction: column;
+      margin-left: 0;
+    }
+}
